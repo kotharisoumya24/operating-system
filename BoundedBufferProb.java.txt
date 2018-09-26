@@ -1,0 +1,65 @@
+import java.util.*;
+public class Sharnam
+{
+    static int s=1,e=10,f=0;
+    static int wait(int s)
+     {
+        return --s;
+     }
+    static int signal(int s)
+     {
+        return ++s;
+     } 
+     
+    static void producer()
+    { 
+        s=wait(s);
+        e=wait(e);
+        f=signal(f);
+        int j=1;
+        System.out.println("Producer produces"+ j +"Items");
+        j++;
+        s=signal(s);
+    }
+    static void consumer()
+    {
+        s=wait(s);
+        e=signal(e);
+        f=wait(f);
+        int k=1;
+        System.out.println("Consumer consumes"+ k +"Items");
+        k++;
+        s=signal(s);    
+    }
+    
+    public static void main(String args[])
+    {
+    while(true)
+    {
+        System.out.println("1. Producer 2.Consumer 3.Exit");
+        Scanner aa=new Scanner(System.in);   
+        int choice=aa.nextInt();
+        switch(choice)
+        {
+        case 1: if(s!=0 && e!=0)
+        {
+            producer();
+        }
+            else
+            {
+                System.out.println("Producer is waiting");
+            }
+            
+       case 2:if(s==1 && f!=0)
+       {
+            consumer();
+       }
+            else 
+            {
+              System.out.println("Consumer is waiting");
+            }
+            case 3: System.exit(0);
+       }    
+    }        
+}
+}
