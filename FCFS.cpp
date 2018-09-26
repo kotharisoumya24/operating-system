@@ -13,7 +13,7 @@ int main()
 		tat=b[1];
 	}
 	
-	cout<<"\n\tProcess \t   BT    \t Waiting time \t turn around time\n";
+	cout<<"\n\tProcess \t   BT    \t Waiting  \t turn around time\n";
 	for(i=1;i<=n;i++)
 	{	
 		tat=b[i]+w;
